@@ -1,5 +1,5 @@
 # Caffe-to-TensorFlow-for-python3.5.2
-Caffe to TensorFlow for python3.5.2 with Anaconda3 on Windows. This whole project is based on ethereon/caffe-tensorflow£¨https://github.com/ethereon/caffe-tensorflow£© which is original designed for python2.x environment.
+Caffe to TensorFlow for python3.5.2 with Anaconda3 on Windows. This whole project is based on ethereon/caffe-tensorflow (https://github.com/ethereon/caffe-tensorflow) which is original designed for python2.x environment.
 
 This version works fine on my Anaconda3(python3.5.2) environment in Windows10 without a full test, and may still hold errors for untested situations. It adds support for upper case naming of caffe layers, such as CONVOLUTION, RELU, INNER_PRODUCT, and POOLING etc.
 
