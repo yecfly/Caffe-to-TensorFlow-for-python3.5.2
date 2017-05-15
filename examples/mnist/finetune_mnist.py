@@ -9,9 +9,9 @@ from mynet import LeNet as MyNet
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 batch_size = 32
 
-def gen_data(source):
+def gen_data(source):##return the images and corresponding labels with random order
     while True:
-        indices = range(len(source.images))
+        indices = list(range(len(source.images)))
         random.shuffle(indices)
         for i in indices:
             image = np.reshape(source.images[i], (28, 28, 1))
@@ -37,13 +37,13 @@ net = MyNet({'data': images})
 ip2 = net.layers['ip2']
 pred = tf.nn.softmax(ip2)
 
-loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(ip2, labels), 0)
+loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=labels, logits=ip2), 0)
 opt = tf.train.RMSPropOptimizer(0.001)
 train_op = opt.minimize(loss)
 
 with tf.Session() as sess:
     # Load the data
-    sess.run(tf.initialize_all_variables())
+    sess.run(tf.global_variables_initializer())
     net.load('mynet.npy', sess)
 
     data_gen = gen_data_batch(mnist.train)
