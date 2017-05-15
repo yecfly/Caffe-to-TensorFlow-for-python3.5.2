@@ -11,6 +11,7 @@ batch_size = 32
 
 def gen_data(source):##return the images and corresponding labels with random order
     while True:
+        #indices = range(len(source.images))#in Python3, range returns a range object not a list
         indices = list(range(len(source.images)))
         random.shuffle(indices)
         for i in indices:
